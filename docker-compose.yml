@@ -2,14 +2,11 @@ version: '2'
 services:
   db:
     image: mysql
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: toto
   php:
     build: ./php-fpm
-    expose:
-      - "9000"
     volumes:
       - ./symfony:/var/www/symfony
       - ./logs/symfony:/var/www/symfony/app/logs
@@ -20,7 +17,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "80:80"
+      - "8003:80"
     links:
       - php
     volumes_from:
