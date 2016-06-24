@@ -6,7 +6,9 @@ chmod 744 composer.phar
 mv composer.phar /usr/bin/composer
 
 cd /var/www/symfony
-php app/console doctrine:database:create
 composer install
+
+php app/console doctrine:migrations:migrate --no-interaction
+php app/console doctrine:fixtures:load --no-interaction
 
 php5-fpm -F
