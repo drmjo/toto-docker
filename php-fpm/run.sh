@@ -17,6 +17,6 @@ chmod 744 composer.phar
 php app/console doctrine:migrations:migrate --no-interaction
 php app/console doctrine:fixtures:load --no-interaction
 
-chown -R root:www-data .
+chown -R www-data:www-data .
 
 php5-fpm -F
