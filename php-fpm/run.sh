@@ -15,7 +15,8 @@ chmod 744 composer.phar
 ./composer.phar install
 
 php app/console doctrine:migrations:migrate --no-interaction
-php app/console doctrine:fixtures:load --no-interaction
+
+#php app/console doctrine:fixtures:load --no-interaction
 
 chown -R www-data:www-data .
 

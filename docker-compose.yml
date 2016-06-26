@@ -2,11 +2,13 @@ version: '2'
 services:
   db:
     image: mysql
+    container_name: toto_db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: toto
   php:
     build: ./php-fpm
+    container_name: toto_php
     volumes:
       - ./symfony:/var/www/symfony
       - ./logs/symfony:/var/www/symfony/app/logs
@@ -16,6 +18,7 @@ services:
       - db
   nginx:
     build: ./nginx
+    container_name: toto_nginx
     ports:
       - "8003:80"
     links:
